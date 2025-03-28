@@ -1,27 +1,35 @@
-import React, { useState } from "react"
+import React from "react"
 import { Map, Marker } from "pigeon-maps"
 
-const MyMap = () => {
-    const [markers, setMarkers] = useState([]);
+const canDisplayMarker = (post) => {    
+    return Number.isFinite(post.longitude) && Number.isFinite(post.longitude);
+}  
 
-    // Обработка клика по карте
+const MyMap = ({ post, setPost, posts }) => {
     const handleMapClick = ({ latLng }) => {
-        setMarkers([...markers, latLng]); // Добавляем новый маркер
+        setPost({ ...post, latitude: latLng[0], longitude: latLng[1]})
     };
 
     return (
-        <Map defaultCenter={[50.879, 4.6997]} 
-            defaultZoom={15} 
-            minZoom={8} 
+        <Map defaultCenter={[58.0105, 56.2502]} 
+            defaultZoom={13} 
+            minZoom={6} 
             onClick={handleMapClick}>
             {
-                markers.map((position, index) => (
+                posts.map((elem, index) => (
                     <Marker
                         key={index}
-                        anchor={position}
-                        payload={index}
-                        onClick={() => console.log(`Маркер ${index} кликнут`)}/>))
+                        anchor={[elem.latitude, elem.longitude]}
+                        color="rgba(34, 113, 179, 1)"
+                        onClick={() => console.log(elem)} />))                    
             }
+            {
+                canDisplayMarker(post) && 
+                <Marker
+                    anchor={[post.latitude, post.longitude]}
+                    color="rgba(178, 34, 34, 1)"
+                    onClick={() => console.log(post)} />
+            }            
         </Map>
     );
 };

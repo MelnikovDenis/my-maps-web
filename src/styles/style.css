@@ -8,6 +8,17 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+button, input, textarea, select {
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 *,
 *:before,
 *::after {
@@ -20,41 +31,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-    min-width: 400px;
-    min-height: 400px;
     width: 100%;
     height: 100%;
+    min-width: 400px;
+    min-height: 400px; 
+
     display: flex;
     flex-direction: column;
-}
-
-/* Menu */
-
-.menu__wrapper {
-    width: 25%;
-}
-
-.menu {
-    width: 100%;
-    height: 100%;
-}
-
-/* Map */
-
-.map__wrapper {
-    flex-grow: 1;
-    padding: 8px;
-}
-
-/* Main */
-
-.main {    
-    flex-grow: 1;    
-}
-
-.main__inner {
-    display: flex;
-    height: 100%;
 }
 
 /* Header */
@@ -63,7 +46,8 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1000;
     width: 100%;
 
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);    
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 
+        0 1px 2px rgba(0, 0, 0, .24);    
 }
 
 .header__inner {
@@ -78,4 +62,176 @@ h1, h2, h3, h4, h5, h6 {
     font-size: x-large;
     font-weight: 700;
     color: black;
+}
+
+/* Main */
+
+.main {    
+    flex-grow: 1;    
+}
+
+.main__inner {
+    display: flex;
+    height: 100%;
+}
+
+/* Menu */
+
+.postForm__wrapper {
+    width: 25%;
+    height: 25%;
+    min-width: max-content;
+
+    padding: 10px;
+}
+
+.postForm {
+    width: 100%;
+    height: 100%;
+    min-width: max-content;
+    padding: 10px 20px;
+
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 
+        0 1px 2px rgba(0, 0, 0, .24); 
+}
+
+.postForm__inner {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+/* Map */
+
+.map__wrapper {
+    flex-grow: 1;
+    padding: 8px;
+}
+
+/* Auth */
+
+.auth {    
+    flex-grow: 1;    
+}
+
+.auth__inner {
+    height: 100%;
+
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+}
+
+/* AuthForm */
+
+.authForm {
+    width: 500px;
+    height: 300px;
+    min-width: 500px;
+    min-height: 300px;
+
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 
+        0 1px 2px rgba(0, 0, 0, .24);    
+}
+
+.authForm__inner {
+    height: 100%;
+    width: 100%;
+
+    padding: 10px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.authForm__title {
+    font-size: large;
+}
+
+.input__wrapper {
+    width: 100%;
+}
+
+.button__wrapper {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.button__wrapper__inner {
+    margin-right: 40px;
+}
+
+/* MyInput */
+
+.myInput {
+    width: 100%;
+
+    padding: 4px 8px;
+
+    background-color: rgba(255, 255, 255, 1);
+
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, .5);
+
+    font-size: large; 
+}
+
+.myInput:focus,
+.myInput:hover {
+    border: 2px solid rgba(0, 0, 0, 1);
+}
+
+/* MyButton */
+
+.myButton,
+.myButton__inactive {
+    width: 100%;
+    min-width: 100px;
+
+    padding: 4px 8px;
+
+    color: rgba(0, 0, 0, .5);
+
+    background-color: rgba(255, 255, 255, 1);
+
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, .5);
+
+    font-size: large;
+
+    cursor: pointer;
+}
+
+.myButton:focus,
+.myButton:hover {
+    color: rgba(0, 0, 0, 1);
+    border: 2px solid rgba(0, 0, 0, 1);
+}
+
+.exitButton {
+    color: rgba(0, 0, 0, 1);
+
+    background-color: transparent;
+
+    border: 0px;
+
+    font-size: large;
+
+    cursor: pointer;
+}
+
+.exitButton:focus,
+.exitButton:hover {   
+    text-decoration: underline;
 }
