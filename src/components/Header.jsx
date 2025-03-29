@@ -1,5 +1,5 @@
 import React from 'react';
-import MyButton from './MyButton';
+import MyButton from './UI/MyButton';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
 
@@ -18,8 +18,9 @@ const Header = () => {
             <div className='header__inner'>
                 <h1 className='header__logo'>MyMaps</h1>
                 <MyButton onClick={onExit} 
-                    text="Выйти"
-                    className={isAuthenticated ? "exitButton" : "hidden"}/>
+                    className={isAuthenticated ? "exitButton" : "hidden"}>
+                    { "Выйти" } 
+                </ MyButton>
             </div>
         </header>
     );

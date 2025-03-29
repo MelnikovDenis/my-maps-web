@@ -23,4 +23,10 @@ export default class MyMapApi {
 
         return response;
     }
+
+    static async deletePost(postId) {
+        const response = await api.delete(`/posts?postId=${postId}`);
+
+        return response;
+    }
 }

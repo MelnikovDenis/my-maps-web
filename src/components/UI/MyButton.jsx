@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyButton = ({ text, onClick, ...props }) => {
+const MyButton = ({ children, onClick, ...props }) => {
 
     const onClick_ = (e) => {
         e.preventDefault;
@@ -11,7 +11,7 @@ const MyButton = ({ text, onClick, ...props }) => {
     return (
         <button onClick={onClick_}             
             {...props} >
-            { text }
+            { children }
         </button>
     );
 };

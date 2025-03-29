@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import MyInput from '../MyInput';
-import MyButton from '../MyButton';
+import MyInput from '../UI/MyInput';
+import MyButton from '../UI/MyButton';
 import { useFetching } from '../../hooks/useFetching';
 import MyMapApi from '../../http/MyMapApi';
 import { useAuth } from '../../context/AuthProvider';
@@ -20,13 +20,14 @@ const AuthForm = () => {
         if(response.data?.isSuccess) {
             setToken(response.data.data);
 
+            setError("");
+
             navigate("/main")
         }
     });
 
     const onSubmit = () => {
         auth().catch(authError => {
-            console.log(authError);
             if(authError?.response) {
                 if(authError.response?.status === 401) {
                     setError("Неверный логин или пароль");
@@ -74,10 +75,10 @@ const AuthForm = () => {
                 <div className='button__wrapper'>
                     <div className='button__wrapper__inner'>
                         <MyButton onClick={onSubmit} 
-                            text={!isAuthLoading ? "Войти" : "Загрузка..."} 
                             className={!isAuthLoading ? 'myButton' : 'myButton__inactive'}
-                            disabled={ isAuthLoading }
-                            />
+                            disabled={ isAuthLoading }>
+                            { !isAuthLoading ? "Войти" : "Загрузка..." }
+                        </MyButton>
                     </div>                    
                 </div>
                 
