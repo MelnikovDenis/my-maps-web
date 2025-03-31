@@ -7,11 +7,15 @@ import { useFetching } from "../hooks/useFetching";
 import ErrorContent from "./ErrorContent";
 import MyModal from './UI/MyModal';
 import MyLoader from "./UI/MyLoader";
+import markerIconBlue from "../resources/marker-icon-blue.png";
+import markerIconRed from "../resources/marker-icon-red.png";
+import markerIconBlue2x from "../resources/marker-icon-blue-2x.png";
+import markerShadow from "../resources/marker-shadow.png";
 
 const defaultIcon = L.icon({
-    iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-    iconRetinaUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
-    shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
+    iconUrl: markerIconBlue,
+    iconRetinaUrl: markerIconBlue2x,
+    shadowUrl: markerShadow,
     iconSize: [25, 41],
     iconAnchor: [12, 41],
     popupAnchor: [1, -34],
@@ -105,7 +109,7 @@ const MyMap = ({ post, setPost, posts, setPosts }) => {
                         position={[post.latitude, post.longitude]}
                         icon={L.icon({
                             ...defaultIcon.options,
-                            iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
+                            iconUrl: markerIconRed,
                         })}>
                         <Popup>Выбранная точка</Popup>
                     </Marker>
