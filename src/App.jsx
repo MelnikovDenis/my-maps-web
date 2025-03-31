@@ -3,8 +3,11 @@ import { Navigate } from 'react-router-dom';
 import MainPage from "./pages/MainPage"
 import AuthPage from "./pages/AuthPage"
 import ProtectedRoute from "./components/ProtectedRoute";
+import PublicRoute from "./components/PublicRoute";
+import { useAuth } from "./context/AuthProvider";
 
 function App() {
+  const { isAuthenticated } = useAuth();
 
   return (      
     <Routes>
@@ -12,9 +15,11 @@ function App() {
         <Route path="/main" element={<MainPage />} />
       </Route>
       
-      <Route path="/auth" element={<AuthPage />} />
-
-      <Route path="*" element={<Navigate to="/auth" replace />} />
+      <Route element={<PublicRoute />}>
+        <Route path="/auth" element={<AuthPage />} />
+      </Route>
+          
+      <Route path="*" element={<Navigate to={ isAuthenticated ? "/main" : "/auth" } replace />} />
     </Routes>
   )
 }
