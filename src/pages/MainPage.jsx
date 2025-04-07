@@ -19,6 +19,8 @@ const MainPage = () => {
 
     // добавить отображение лоадера
     const [get, isGetLoading] = useFetching(async () => {
+        await new Promise(resolve => setTimeout(resolve, 100));
+
         const response = await MyMapApi.getPosts();
         
         if(response.data?.isSuccess) {
